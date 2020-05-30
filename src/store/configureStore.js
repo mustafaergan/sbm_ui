@@ -1,6 +1,7 @@
-import {createStore} from 'redux'
-import {sbmReducer} from '../reducers/reducers'
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import reducers from "../reducers";
 
 export const configureStore = () => {
-    return createStore(sbmReducer)
-}
+  return createStore(reducers, applyMiddleware(thunk));
+};
